@@ -277,9 +277,9 @@ public class Tablero {                                                  // 1 pas
         for(int f=0; f<FIL; f++) {                                      // n + 1
             moverIzquierdaFila(f);                                      // n
         }                                                               // n
-        if(!finPartida())                                               // 1 Paso
+        if(!finPartida())                                               // 13 + 12n + 6m 
                 ponerDos();                                             // 12 +  13n
-    }//  16 + 16m                                                              // 1 paso
+    }//16 + 28n + 6m                                                    // 1 paso
     
     private void moverIzquierdaFila(int f) {                            // 1 paso
         colocarIzquierda(f);                                            // 1 paso
@@ -289,7 +289,7 @@ public class Tablero {                                                  // 1 pas
     
     private void colocarIzquierda(int f) {                              // 1 paso
 
-        if(vaciasEnFila(f) < FIL) {                                     // 1 paso
+        if(vaciasEnFila(f) < FIL) {                                     // 4 + 5n
             for(int veces = 0;veces < COL-1;veces++) {                  // n + 1
                 for(int c=0;c<COL-1;c++) {                              // (n + 1)*n -> n**2 + n
                     if(tablero[f][c]==0) {                              // n**2
@@ -300,18 +300,18 @@ public class Tablero {                                                  // 1 pas
             }                                                           // n
         }                                                               // 1 paso
         
-    }// total =                                                         // 1 paso
+    }// total = 8 + 7n + 6(m**2)                                                      // 1 paso
     
     
     private void sumarIzquierda(int f) {                                // 1 paso
-        if(vaciasEnFila(f)<FIL-1) {                                     // 1 paso
-            for(int c=0;c<COL-1;c++) {                                  // COL + 1
-                if(tablero[f][c] == tablero[f][c+1]) {                  // COL
-                    tablero[f][c] *= 2;                                 // COL
-                    tablero[f][c+1] = 0;                                // COL
-                }                                                       // COL
-            }                                                           // COL
+        if(vaciasEnFila(f)<FIL-1) {                                     // 4 + 5n
+            for(int c=0;c<COL-1;c++) {                                  // n + 1
+                if(tablero[f][c] == tablero[f][c+1]) {                  // n
+                    tablero[f][c] *= 2;                                 // n
+                    tablero[f][c+1] = 0;                                // n
+                }                                                       // n
+            }                                                           // n
         }                                                               // 1 paso
-    }// total =                                                                   // 1 paso
+    }// total =n +  11n                                                 // 1 paso
       
 }                                                                       // 1 paso

@@ -7,6 +7,8 @@ import java.util.Scanner;                                                   // 1
  *
  * Andrey Felipe Pinto Uribe         192177
  * Angel Alfredo Urrego Olivera      192179
+ * 
+ * repositorio https://github.com/pintofelipe/2048.git
  */
 public class EjercicioJava06 {                                              // 1 paso
 
@@ -64,7 +66,7 @@ public class EjercicioJava06 {                                              // 1
         tablero = new Tablero();                                        // 5 pasos
         partidaEnJuego = true;                                          // 1 paso
         juego();                                                        //
-    }                                                                   // 1 paso
+    }// total                                                                    // 1 paso
     
     public static void continuarPartida() {                             // 1 paso
         juego();                                                        // 
