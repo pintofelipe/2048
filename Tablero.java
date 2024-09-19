@@ -190,17 +190,17 @@ public class Tablero {                                                  // 1 pas
     
     public void moverAbajo() {                                          // 1 paso
         for(int c=0; c<COL; c++) {                                      // n + 1
-            moverAbajoColumna(c);                                       // n
+            moverAbajoColumna(c);                                       // 33 + 39n + 12m
         }                                                               // n
-        if(!finPartida())                                               // 1 paso
-                ponerDos();                                             // 1 paso
-    }// total =                                                         // 1 paso
+        if(!finPartida())                                               // 13 + 12n + 6m 
+                ponerDos();                                             // 12 +  13n
+    }//total =  61 + 66n + 18m                                              // 1 paso
     
     private void moverAbajoColumna(int c) {                             // 1 paso
         colocarAbajo(c);                                                // 11 + 13n + 6m
-        sumarAbajo(c);                                                  // 1 paso
-        colocarAbajo(c);                                                // 1 paso
-    }// total =                                                                    // 1 paso
+        sumarAbajo(c);                                                  // 9 + 11n
+        colocarAbajo(c);                                                // 11 + 13n + 6 m
+    }// total = 33 + 37n + 12m                                                       // 1 paso
 
     private void colocarAbajo(int c) {                                  // 1 paso
         
@@ -215,7 +215,7 @@ public class Tablero {                                                  // 1 pas
             }                                                           // n
         }                                                               // 1 paso
 
-    }// total = 11 + 13n + 6m                                          // 1 paso
+    }// total = 11 + 13n + 6 m                                          // 1 paso
     
     
     private void sumarAbajo(int c) {                                    // 1 paso
@@ -227,59 +227,59 @@ public class Tablero {                                                  // 1 pas
                 }                                                       // n
             }                                                           // n
         }                                                               // 1 paso
-    }// total                                                                    // 1 paso
+    }//total = 9 + 11n                                                  // 1 paso
     
     
     
     public void moverDerecha() {                                        // 1 paso
-        for(int f=0; f<COL; f++) {                                      // COL + 1
-            moverDerechaFila(f);                                        // COL
-        }                                                               // COL
-        if(!finPartida())                                               // 1 paso
-                ponerDos();                                             // 1 paso
-    }                                                                   //  1 paso
+        for(int f=0; f<COL; f++) {                                      // n + 1
+            moverDerechaFila(f);                                        // 36 + 34n + 24m 
+        }                                                               // n
+        if(!finPartida())                                               // 14 + 12n + 6m 
+            ponerDos();                                                 // 12 +  13n
+    }//total = 65 + 60n                                                       //  1 paso
     
     private void moverDerechaFila(int f) {                              // 1 paso
-        colocarDerecha(f);                                              // 1 paso
-        sumarDerecha(f);                                                // 1 paso
-        colocarDerecha(f);                                              // 1 paso
-    }                                                                   // 1 paso
+        colocarDerecha(f);                                              // 10 + 9n + 6m
+        sumarDerecha(f);                                                // 14 + 15n + 6m 
+        colocarDerecha(f);                                              // 10 + 9n + 6m
+    }//total = 36 + 33n + 24m                                          // 1 paso
     
     private void colocarDerecha(int f) {                                // 1 paso
 
-        if(vaciasEnFila(f) < FIL) {                                     // 1 paso
-            for(int veces = 0;veces < COL-1;veces++) {                  // (COL + 1 )
-                for(int c=COL-1;c>0;c--) {                              // (n + 1) * COL -> n*COL + COL
-                    if(tablero[f][c]==0) {                              // n * COL
-                        tablero[f][c] = tablero[f][c-1];                // n * COL
-                        tablero[f][c-1] = 0;                            // n * COL
-                    }                                                   // n * COL
-                }                                                       // n * COL
-            }                                                           // COL
+        if(vaciasEnFila(f) < FIL) {                                     // 5 + 5n
+            for(int veces = 0;veces < COL-1;veces++) {                  // (n + 1 )
+                for(int c=COL-1;c>0;c--) {                              // (m + 1) * m -> n*m + n
+                    if(tablero[f][c]==0) {                              // n * m
+                        tablero[f][c] = tablero[f][c-1];                // n * m
+                        tablero[f][c-1] = 0;                            // n * m
+                    }                                                   // n * m
+                }                                                       // n * m
+            }                                                           // n
         }                                                               // 1 paso
         
-    }                                                                   // 1 paso
+    }//total = 10 + 9n + 6m                                              // 1 paso
     
     
     private void sumarDerecha(int f) {                                  // 1 paso
-        if(vaciasEnFila(f)<FIL-1) {                                     // 1 paso
-            for(int c=COL-1;c>0;c--) {                                  // COL + 1
-                if(tablero[f][c] == tablero[f][c-1]) {                  // COL
-                    tablero[f][c] *= 2;                                 // COL
-                    tablero[f][c-1] = 0;                                // COL
-                }                                                       // COL
-            }                                                           // COL
+        if(vaciasEnFila(f)<FIL-1) {                                     // 10 + 9n + 6m
+            for(int c=COL-1;c>0;c--) {                                  // n + 1
+                if(tablero[f][c] == tablero[f][c-1]) {                  // n
+                    tablero[f][c] *= 2;                                 // n
+                    tablero[f][c-1] = 0;                                // n
+                }                                                       // n
+            }                                                           // n
         }                                                               // 1 paso
-    }                                                                   // 1 paso
+    }//total =  14 + 15n + 6m                                           // 1 paso
     
     
     public void moverIzquierda() {                                      //  1 paso
-        for(int f=0; f<FIL; f++) {                                      // FIL + 1
-            moverIzquierdaFila(f);                                      // FIL
-        }                                                               // FIL
+        for(int f=0; f<FIL; f++) {                                      // n + 1
+            moverIzquierdaFila(f);                                      // n
+        }                                                               // n
         if(!finPartida())                                               // 1 Paso
-                ponerDos();                                             // 1 paso
-    }                                                                   // 1 paso
+                ponerDos();                                             // 12 +  13n
+    }//  16 + 16m                                                              // 1 paso
     
     private void moverIzquierdaFila(int f) {                            // 1 paso
         colocarIzquierda(f);                                            // 1 paso
@@ -290,17 +290,17 @@ public class Tablero {                                                  // 1 pas
     private void colocarIzquierda(int f) {                              // 1 paso
 
         if(vaciasEnFila(f) < FIL) {                                     // 1 paso
-            for(int veces = 0;veces < COL-1;veces++) {                  // COL + 1
-                for(int c=0;c<COL-1;c++) {                              // (COL + 1)*COL -> COL**2 + COL
-                    if(tablero[f][c]==0) {                              // COL**2
-                        tablero[f][c] = tablero[f][c+1];                // COL**2
-                        tablero[f][c+1] = 0;                            // COL**2
-                    }                                                   // COL**2
-                }                                                       // COL**2
-            }                                                           // COL
+            for(int veces = 0;veces < COL-1;veces++) {                  // n + 1
+                for(int c=0;c<COL-1;c++) {                              // (n + 1)*n -> n**2 + n
+                    if(tablero[f][c]==0) {                              // n**2
+                        tablero[f][c] = tablero[f][c+1];                // n**2
+                        tablero[f][c+1] = 0;                            // n**2
+                    }                                                   // n**2
+                }                                                       // n**2
+            }                                                           // n
         }                                                               // 1 paso
         
-    }                                                                   // 1 paso
+    }// total =                                                         // 1 paso
     
     
     private void sumarIzquierda(int f) {                                // 1 paso
@@ -312,6 +312,6 @@ public class Tablero {                                                  // 1 pas
                 }                                                       // COL
             }                                                           // COL
         }                                                               // 1 paso
-    }                                                                   // 1 paso
+    }// total =                                                                   // 1 paso
       
 }                                                                       // 1 paso
