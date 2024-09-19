@@ -16,49 +16,48 @@ public class Tablero {                                                  // 1 pas
     
     public Tablero() {                                                  // 1 paso
         tablero = new int[FIL][COL];                                    // 1 paso                           
-        for(int f=0;f<FIL;f++) {                                        // FIL + 1
-            for(int c=0;c<COL;c++) {                                    // (COL + 1) * FIL -> COL*FIL + FIL
-                tablero[f][c] = 0;                                      // COL
-            }                                                           // COL
-        }                                                               // FIL    
+        for(int f=0;f<FIL;f++) {                                        // n + 1
+            for(int c=0;c<COL;c++) {                                    // (m + 1) * n -> n*m + n
+                tablero[f][c] = 0;                                      // n*m
+            }                                                           // n*m
+        }                                                               // n    
         
-        ponerDos();
-        ponerDos();
+        ponerDos();                                                     //8 + 8n
+        ponerDos();                                                     //8 + 8n
         
-               
-    }
+    } // total = 20 + 5n + 3m                                           // 1 paso
     
     private int vaciasEnFila(int f) {                                    // 1 paso 
         int n=0;                                                         // 1 paso
-        for(int c=0;c<COL;c++) {                                         // COL + 1
-            if(tablero[f][c]==0) {                                       // COL
-                n++;                                                     // COL
-            }                                                            // COL
-        }                                                                // COL
+        for(int c=0;c<COL;c++) {                                         // n + 1
+            if(tablero[f][c]==0) {                                       // n
+                n++;                                                     // n
+            }                                                            // n
+        }                                                                // n
         return n;                                                        // 1 paso
-    }                                                                    // 1 paso
+    } //total =  4 + 5n                                                 // 1 paso
     
     private int vaciasEnColumna(int c) {                                // 1 paso   
         int n=0;                                                        // 1 paso
-        for(int f=0;f<FIL;f++) {                                        // FIL + 1
-            if(tablero[f][c]==0) {                                      // FIL
-                n++;                                                    // FIL
-            }                                                           // FIL
-        }                                                               // FIL
+        for(int f=0;f<FIL;f++) {                                        // n + 1
+            if(tablero[f][c]==0) {                                      // n
+                n++;                                                    // n
+            }                                                           // n
+        }                                                               // n
         return n;                                                       // 1 paso
-    }                                                                   // 1 paso
+    }// total= 5 + 5n                                                   // 1 paso
     
     private int vacias() {                                              // 1 paso
         int n=0;                                                        // 1 paso
-        for(int f=0;f<FIL;f++) {                                        // FIL + 1
-            for(int c=0;c<COL;c++) {                                    // (COL+1)FIL -> COL*FIL + FIL
-                if(tablero[f][c]==0) {                                  // COL*FIL
-                    n++;                                                // COL*FIL
-                }                                                       // COL * FIL
-            }                                                           // COL * FIL
-        }                                                               // FIL
+        for(int f=0;f<FIL;f++) {                                        // n + 1
+            for(int c=0;c<COL;c++) {                                    // (m+1)n -> n*m + n
+                if(tablero[f][c]==0) {                                  // n*m
+                    n++;                                                // n*m
+                }                                                       // n * m
+            }                                                           // n * m
+        }                                                               // n
         return n;                                                       // 1 paso
-    }
+    }// total 6 + 7n + 3m                                               // 6 pasos
     
     
     private void ponerDos() {                                           // 1 PASO
@@ -70,7 +69,7 @@ public class Tablero {                                                  // 1 pas
         do {                                                            // n
             f = random.nextInt(FIL);                                    // n
         }                                                               // n
-         while(vaciasEnFila(f) == 0);                                   // n + 1
+         while(vaciasEnFila(f) == 0);                                   // (n + 1 ) + 4 + 5n
         
         do {                                                            // n
             c = random.nextInt(COL);                                    // n
@@ -79,156 +78,156 @@ public class Tablero {                                                  // 1 pas
         
         tablero[f][c] = 2;                                              // 1 paso
         
-    }                                                                   // 1 paso
+    }// total =  12 +  13n                                             // 1 paso
     
     
     public void mostrar() {                                             // 1 paso
-        for(int f=0;f<FIL;f++) {                                        // FIL + 1 
-            dibujaLineaHorizontal();
-            dibujaEspacioHorizontal();
-            System.out.print("|");  
-            for(int c=0;c<COL;c++) {
-                System.out.print("    ");
-                if(tablero[f][c]>=1000)
-                    System.out.print(tablero[f][c]);
-                else if(tablero[f][c] >= 100)
-                    System.out.print(" "+tablero[f][c]);
-                else if(tablero[f][c] >= 10)
-                    System.out.print(" "+tablero[f][c]+" ");
-                else if(tablero[f][c] > 0)
-                    System.out.print("  "+tablero[f][c]+" ");
-                else if(tablero[f][c] == 0)
-                    System.out.print("    ");
-                System.out.print("    |");
-            }
-            System.out.print("\n");
-            dibujaEspacioHorizontal();
-        } 
-        dibujaLineaHorizontal();
-    }    
+        for(int f=0;f<FIL;f++) {                                        // n + 1 
+            dibujaLineaHorizontal();                                    // 6 + 6n + 3m
+            dibujaEspacioHorizontal();                                  // 6 + 6n + 3m
+            System.out.print("|");                                      // 1 paso
+            for(int c=0;c<COL;c++) {                                    // n + 1
+                System.out.print("    ");                               // n
+                if(tablero[f][c]>=1000)                                 // n
+                    System.out.print(tablero[f][c]);                    // n
+                else if(tablero[f][c] >= 100)                           // n
+                    System.out.print(" "+tablero[f][c]);                // n
+                else if(tablero[f][c] >= 10)                            // n
+                    System.out.print(" "+tablero[f][c]+" ");            // n
+                else if(tablero[f][c] > 0)                              // n
+                    System.out.print("  "+tablero[f][c]+" ");           // n
+                else if(tablero[f][c] == 0)                             // n
+                    System.out.print("    ");                           // n
+                System.out.print("    |");                              // n
+            }                                                           // n
+            System.out.print("\n");                                     // 1 paso
+            dibujaEspacioHorizontal();                                  // 6 + 7n +3m
+        }                                                               // n
+        dibujaLineaHorizontal();                                        // 6 + 7n + 3m 
+    }// total = 31 + 41n + 12m                                          // 1 paso     
     
     private void dibujaLineaHorizontal() {                              // 1 paso
         
         System.out.print("|");                                          // 1 paso
-        for(int c=0;c<COL;c++) {                                        // COL + 1
-            for(int i=0;i<12;i++) {                                     // (n + 1) * COL -> n*COL + COL
-                System.out.print("-");                                  // n * COL
-            }                                                           // n * COL
-            System.out.print("|");                                      // COL
-        }                                                               // COL
+        for(int c=0;c<COL;c++) {                                        // n + 1
+            for(int i=0;i<12;i++) {                                     // (m + 1) * n -> n*m + n
+                System.out.print("-");                                  // n * m
+            }                                                           // n * m
+            System.out.print("|");                                      // n
+        }                                                               // n
         System.out.print("\n");                                         // 1 paso
             
-        }                                                               // 1 paso
+    }// total = 6 + 6n + 3m                                             // 1 paso
     
     private void dibujaEspacioHorizontal() {                            // 1 paso
          System.out.print("|");                                         // 1 paso
-        for(int c=0;c<COL;c++) {                                        // COL + 1
-            for(int i=0;i<12;i++) {                                     // (n + 1) * COL -> n*COL + COL
-                System.out.print(" ");                                  // n * COL
-            }                                                           //n * COL                                             
-            System.out.print("|");                                      // COL
-        }                                                               // COL
+        for(int c=0;c<COL;c++) {                                        // n + 1
+            for(int i=0;i<12;i++) {                                     // (n + 1) * m -> n*m + n
+                System.out.print(" ");                                  // n * m
+            }                                                           //n * m                                             
+            System.out.print("|");                                      // n
+        }                                                               // n
         System.out.print("\n");                                         // 1 paso
-    }                                                                   // 1 paso
+    }// total = 6 + 6n                                                  // 1 paso
     
     public boolean ganador() {                                          // 1 paso
-        for(int f=0;f<FIL;f++) {                                        // (FIL + 1)
-            for(int c=0;c<COL;c++) {                                    // (COL+1)*FIL -> FIL*COL + FIL
-                if(tablero[f][c]==2048) return true;                    // FIL * COL
-            }                                                           // FIL * COL
-        }                                                               // FIL
+        for(int f=0;f<FIL;f++) {                                        // (n + 1)
+            for(int c=0;c<COL;c++) {                                    // (m+1)*n -> n*m + n
+                if(tablero[f][c]==2048) return true;                    // n * m
+            }                                                           // n * m
+        }                                                               // n
         return false;                                                   // 1 paso
-    }                                                                   // 1 paso
+    }// total = 5 + 5n + 3m                                              // 1 paso
     
     public boolean finPartida() {                                       // 1 paso
-        return (ganador() || vacias()==0);                              // 1 paso
-    }                                                                   // 1 paso
+        return (ganador() || vacias()==0);                              // (5+5n+3m)+ (6 +7n+3m) = 11 + 12n + 6m
+    }// total = 13 + 12n + 6m                                           // 1 paso
     
     public void moverArriba() {                                         // 1 paso
-        for(int c=0; c<COL; c++) {                                      // COL + 1
-            moverArribaColumna(c);                                      // COL
-        }                                                               // COL 
-        if(!finPartida())                                               // 1 paso
-            ponerDos();                                                 //  1 paso
-    }                                                                   // 1 paso
+        for(int c=0; c<COL; c++) {                                      // n + 1
+            moverArribaColumna(c);                                      // 30 + 38n + 12m
+        }                                                               // n 
+        if(!finPartida())                                               // 13 + 12n + 6 m
+            ponerDos();                                                 // 12 + 13n
+    } //total = 58 +  64n + 18m                                          // 1 paso
     
     private void moverArribaColumna(int c) {                            // 1 paso
-        colocarArriba(c);                                               // 
-        sumarArriba(c);
-        colocarArriba(c);
-    }
+        colocarArriba(c);                                               // 10 + 13n + 6m
+        sumarArriba(c);                                                 // 9 + 11 n
+        colocarArriba(c);                                               // 10 + 13 + 6m
+    }// total = 30 + 37n + 12m
     
     private void colocarArriba(int c) {                                 // 1 paso
         
-        if(vaciasEnColumna(c) < COL) {                                  // 1 paso
-            for(int veces = 0;veces < COL-1;veces++) {                  // veces + 1
-                for(int f=0;f<FIL-1;f++) {                              // (FIL+1) * veces -> veces* FIL + veces
-                    if(tablero[f][c]==0) {                              // FIL*veces
-                        tablero[f][c] = tablero[f+1][c];                // FIL*veces
-                        tablero[f+1][c] = 0;                            // FIL*veces
-                    }                                                   // FIL*veces
-                }                                                       // FIL*veces
-            }                                                           // veces
+        if(vaciasEnColumna(c) < COL) {                                  // 5 + 5n
+            for(int veces = 0;veces < COL-1;veces++) {                  // n + 1
+                for(int f=0;f<FIL-1;f++) {                              // (m+1) * n -> n*m + n
+                    if(tablero[f][c]==0) {                              // n*m
+                        tablero[f][c] = tablero[f+1][c];                // n*m
+                    }                                                   // n*m
+                }                                                       // n*m
+                        tablero[f+1][c] = 0;                            // n*m
+            }                                                           // n
         }                                                               // 1 paso
         
-    }                                                                   // 1 paso
+    }// total =  10 + 13n + 6 m                                        // 1 paso
     
     
     private void sumarArriba(int c) {                                   // 1 paso
-        if(vaciasEnColumna(c)<FIL-1) {                                  // 1 paso
-            for(int f=0;f<FIL-1;f++) {                                  // FIL + 1
-                if(tablero[f][c] == tablero[f+1][c]) {                  // FIL
-                    tablero[f][c] *= 2;                                 // FIL
-                    tablero[f+1][c] = 0;                                // FIL
-                }                                                       // FIL
-            }                                                           // FIL
+        if(vaciasEnColumna(c)<FIL-1) {                                  // 5 + 5n
+            for(int f=0;f<FIL-1;f++) {                                  // n + 1
+                if(tablero[f][c] == tablero[f+1][c]) {                  // n
+                    tablero[f][c] *= 2;                                 // n
+                    tablero[f+1][c] = 0;                                // n
+                }                                                       // n
+            }                                                           // n
         }                                                               // 1 paso
-    }                                                                   // 1 paso
+    }//total = 9 + 11n                                                  // 1 paso
     
     
     
     
     
     public void moverAbajo() {                                          // 1 paso
-        for(int c=0; c<COL; c++) {                                      // COL + 1
-            moverAbajoColumna(c);                                       // COL
-        }                                                               // COL
+        for(int c=0; c<COL; c++) {                                      // n + 1
+            moverAbajoColumna(c);                                       // n
+        }                                                               // n
         if(!finPartida())                                               // 1 paso
                 ponerDos();                                             // 1 paso
-    }                                                                   // 1 paso
+    }// total =                                                         // 1 paso
     
     private void moverAbajoColumna(int c) {                             // 1 paso
-        colocarAbajo(c);                                                // 1 paso
+        colocarAbajo(c);                                                // 11 + 13n + 6m
         sumarAbajo(c);                                                  // 1 paso
         colocarAbajo(c);                                                // 1 paso
-    }                                                                   // 1 paso
+    }// total =                                                                    // 1 paso
 
     private void colocarAbajo(int c) {                                  // 1 paso
         
-        if(vaciasEnColumna(c) < COL) {                                  // 1 paso
-            for(int veces = 0;veces < COL-1;veces++) {                  // veces + 1
-                for(int f=FIL-1;f>0;f--) {                              // (FIL+1)*veces -> FIL*veces + veces
-                    if(tablero[f][c]==0) {                              // FIL*veces
-                        tablero[f][c] = tablero[f-1][c];                // FIL*veces
-                        tablero[f-1][c] = 0;                            // FIL * veces
-                    }                                                   // FIL * veces
-                }                                                       // FIL * veces
-            }                                                           // veces
+        if(vaciasEnColumna(c) < COL) {                                  // 6 + 5n
+            for(int veces = 0;veces < COL-1;veces++) {                  // n + 1
+                for(int f=FIL-1;f>0;f--) {                              // (m+1)*n -> n*m + n
+                    if(tablero[f][c]==0) {                              // n*m
+                        tablero[f][c] = tablero[f-1][c];                // n*m
+                        tablero[f-1][c] = 0;                            // n*m
+                    }                                                   // n*m
+                }                                                       // n*m
+            }                                                           // n
         }                                                               // 1 paso
 
-    }                                                                   // 1 paso
+    }// total = 11 + 13n + 6m                                          // 1 paso
     
     
     private void sumarAbajo(int c) {                                    // 1 paso
-        if(vaciasEnColumna(c)<FIL-1) {                                  // 1 paso
-            for(int f=FIL-1;f>0;f--) {                                  // FIL + 1
-                if(tablero[f][c] == tablero[f-1][c]) {                  // FIL
-                    tablero[f][c] *= 2;                                 // FIL
-                    tablero[f-1][c] = 0;                                // FIL
-                }                                                       // FIL
-            }                                                           // FIL
+        if(vaciasEnColumna(c)<FIL-1) {                                  // 6 + 5n 
+            for(int f=FIL-1;f>0;f--) {                                  // n + 1
+                if(tablero[f][c] == tablero[f-1][c]) {                  // n
+                    tablero[f][c] *= 2;                                 // n
+                    tablero[f-1][c] = 0;                                // n
+                }                                                       // n
+            }                                                           // n
         }                                                               // 1 paso
-    }                                                                   // 1 paso
+    }// total                                                                    // 1 paso
     
     
     
